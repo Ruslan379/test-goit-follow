@@ -2,12 +2,12 @@ import { useState } from 'react';
 import css from './App.module.css';
 
 export const App = () => {
-  let followers = 100500
+  let followers = 500
 
   const [trigger, setTrigger] = useState(false);
-  console.log("trigger:", trigger);
+  // console.log("trigger:", trigger); //!
 
-  if (trigger) followers = 100501
+  if (trigger) followers = 501
 
   const toggleTrigger = () => {
     setTrigger(!trigger);
@@ -30,14 +30,15 @@ export const App = () => {
       }}
     >
       <p>777 tweets</p>
-      <p>FOLLOWERS <span className={css.spanFollowers}>{followers}</span></p>
+      <p>FOLLOWERS <span className={css.spanFollowers}>100,{followers}</span></p>
       <button
           type="button"
-          className={css.btnFollowers}
+        // className={css.btnFollowers}
+        className={trigger ? css.btnFOLLOWING : css.btnFOLLOW}
           onClick={toggleTrigger}
       >
-        FOLLOW
-        {/* {isLoading ? [<Spinner size="18" />, " Editing..."] : "Edit"} */}
+        {/* FOLLOW */}
+        {trigger ? "FOLLOWING" : "FOLLOW"}
       </button>
 
 
