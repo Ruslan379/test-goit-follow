@@ -49,17 +49,32 @@
 .avatar {
     /* height: 80px; */
     /* width: 80px; */
+    margin-bottom: 0px;
     position: relative;
-        top: -25px;
+        top: -35px;
         right: 0px;
+        z-index: 99;
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+.rectangle {
+    /* height: 80px; */
+    /* width: 80px; */
+    position: relative;
+    top: -80px;
+    right: 0px;
     /* justify-content: center; */
     /* align-items: center; */
 }
 
 
 .tweets {
-    margin-top: 0px;
-    margin-bottom: 16px;
+    position: relative;
+        top: -45px;
+        right: 0px;
+    /* margin-top: 0px; */
+    margin-bottom: -25px;
 }
 
 
