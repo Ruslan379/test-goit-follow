@@ -35,7 +35,7 @@ export const App = () => {
       {/* //! picture */}
       <Picture className={css.picture} />
       {/* <img className={css.picture}
-                src={defaultAvatar}
+                src={picture}
                 alt="" width="308"
             /> */}
       {/* //! avatar */}
