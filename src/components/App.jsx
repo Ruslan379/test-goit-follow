@@ -14,11 +14,29 @@ import css from './App.module.css';
 export const App = () => {
   const [trigger, setTrigger] = useLocalStorage("Followers", false);
   // console.log("trigger:", trigger); //!
-  
-  let followers = 500;
-  const tweets = 777;
 
-  if (trigger) followers = 501;
+  //! Input data
+  const tweets = 777;
+  let followers = 100500;
+
+  //! --------------- Преобразование 100500(100501) --> 100,500(100,501) ---------------
+  let followersString = followers.toString()
+  // console.log("followers:", followers); //!
+  // console.log("followersString:", followersString); //!
+  
+  if (trigger) {
+    followers = followers + 1;
+    followersString = followers.toString();
+    // console.log("followers1:", followers); //!
+    // console.log("followersString1:", followersString); //!
+  };
+
+  let followersRenderStart = followersString.slice(0, -3);
+  // console.log("followersRenderStart:", followersRenderStart); //!
+
+  let followersRenderEnd = followersString.slice(-3);
+  // console.log("followersRenderEnd:", followersRenderEnd); //!
+  //! _______________ Преобразование 00500(100501) --> 100,500(100,501) _______________
 
   const toggleTrigger = () => {
     setTrigger(!trigger);
@@ -60,7 +78,7 @@ export const App = () => {
       {/* //! FOLLOWERS */}
       <p className={css.followers}
       >
-        <span className={css.spanFollowers}>100,{followers} </span>
+        <span className={css.spanFollowers}>{followersRenderStart},{followersRenderEnd} </span>
         FOLLOWERS
       </p>
       {/* //! Trigger button */}
