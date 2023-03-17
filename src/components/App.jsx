@@ -12,7 +12,7 @@ import css from './App.module.css';
 
 
 export const App = () => {
-  const [trigger, setTrigger] = useLocalStorage("LocalFollowers", false);
+  const [trigger, setTrigger] = useLocalStorage("Followers", false);
   // console.log("trigger:", trigger); //!
   
   let followers = 500;
