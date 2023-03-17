@@ -1,8 +1,9 @@
 import useLocalStorage from './hooks/useLocalStorage';
 
 //! images
-import { ReactComponent as Picture } from 'images/picture2.svg';
-import logo from 'images/logo.svg'; 
+import logo from 'images/logo.svg';
+// import { ReactComponent as Picture } from 'images/picture2.svg';
+import picture from 'images/picture2.svg'; 
 // import { ReactComponent as Avatar } from 'images/boy.svg';
 import avatar from 'images/boy.svg'; 
 import rectangle from 'images/rectangle.svg'; 
@@ -33,11 +34,11 @@ export const App = () => {
         width="76"
       />
       {/* //! picture */}
-      <Picture className={css.picture} />
-      {/* <img className={css.picture}
+      {/* <Picture className={css.picture} /> */}
+      <img className={css.picture}
                 src={picture}
                 alt="" width="308"
-            /> */}
+            />
       {/* //! avatar */}
       {/* <Avatar className={css.avatar} /> */}
       <img className={css.avatar}
@@ -59,8 +60,8 @@ export const App = () => {
       {/* //! FOLLOWERS */}
       <p className={css.followers}
       >
+        <span className={css.spanFollowers}>100,{followers} </span>
         FOLLOWERS
-        <span className={css.spanFollowers}> 100,{followers}</span>
       </p>
       {/* //! Trigger button */}
       <button
