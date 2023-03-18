@@ -60,6 +60,12 @@
 }
 
 
+.userName {
+    position: absolute;
+        top: 255px;
+    color: #ba8bf8;
+}
+
 .tweets {
     margin-top: 284px;
 }

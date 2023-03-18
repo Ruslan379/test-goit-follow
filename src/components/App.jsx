@@ -79,6 +79,11 @@ export const App = () => {
             alt=""
             width="380"
           />
+          {/* //! user name */}
+          <p className={css.userName}
+          >
+            {user}
+          </p>
           {/* //! tweets */}
           <p className={css.tweets}
           >
