@@ -26,7 +26,7 @@ export const ContactItem = ({contacts}) => {
 
   //! --------------- Преобразование 100500(100501) --> 100,500(100,501) ---------------
   // let followersString = followers.toString();
-  // let followersString = ""
+  let followersString = ""
   // // console.log("followers:", followers); //!
   // // console.log("followersString:", followersString); //!
   
