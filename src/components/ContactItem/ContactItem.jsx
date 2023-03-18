@@ -73,39 +73,26 @@ export const ContactItem = ({ contacts }) => {
     const idNumber = Number(id) - 1;
     console.log("idNumber:", idNumber); //!
 
-    // setArrTrigger(!arrTrigger[idNumber]);
-
-    // if (arrTrigger[idNumber]) {
-    //   console.log("TRUE-->arrTrigger[idNumber]:", arrTrigger[idNumber]); //!
-    //   contacts[idNumber].followers = contacts[idNumber].followers - 1;
-    // } else {
-    //   console.log("FALSE-->arrTrigger[idNumber]:", arrTrigger[idNumber]); //!
-    //   contacts[idNumber].followers = contacts[idNumber].followers + 1;
-    // };
-    // console.log(contacts[idNumber].followers); //!
-    // setContactFollowers(contacts[idNumber].followers) 
-    // console.log("contactFollowers:", contactFollowers);
-
     for (let i = 0; i < contactsLength; i += 1) {
       if (i === idNumber) {
-        console.log("i:", i); //!
-        console.log("idNumber:", idNumber); //!
+        // console.log("i:", i); //!
+        // console.log("idNumber:", idNumber); //!
         arrTrigger[i] = !arrTrigger[i]
         console.log(`toggleTrigger --> arrTrigger[${i}]:`, arrTrigger[i]); //!
         console.log("toggleTrigger --> arrTrigger:", arrTrigger); //!
 
           if (arrTrigger[idNumber]) {
-            console.log("TRUE-->arrTrigger[idNumber]:", arrTrigger[idNumber]); //!
+            console.log(`TRUE-->arrTrigger[${idNumber}]:`, arrTrigger[idNumber]); //!
             contacts[idNumber].followers = contacts[idNumber].followers + 1;
-            console.log(contacts[idNumber].followers); //!
+            console.log(`contacts[${idNumber}].followers`, contacts[idNumber].followers); //!
             setContactFollowers(contacts[idNumber].followers) 
-            console.log("TRUE-->contactFollowers:", contactFollowers);
+            // console.log("TRUE-->contactFollowers:", contactFollowers); //!
           } else {
           console.log("FALSE-->arrTrigger[idNumber]:", arrTrigger[idNumber]); //!
             contacts[idNumber].followers = contacts[idNumber].followers - 1;
             console.log(contacts[idNumber].followers); //!
             setContactFollowers(contacts[idNumber].followers) 
-            console.log("TRUE-->contactFollowers:", contactFollowers);
+            // console.log("FALSE-->contactFollowers:", contactFollowers); //!
           };
         // console.log(contacts[idNumber].followers); //!
         // setContactFollowers(contacts[idNumber].followers) 
@@ -139,7 +126,6 @@ export const ContactItem = ({ contacts }) => {
         // console.log(contact),
         // const id = contact.id,
         // { id, user, tweets, followers } = contact,
-
         // followersString = followers.toString(),
         // console.log(followersString),
         // followersRenderStart = followersString.slice(0, -3),
@@ -188,8 +174,8 @@ export const ContactItem = ({ contacts }) => {
           <p className={css.followers}
           >
               {/* <span className={css.spanFollowers}>{followersRenderStart},{followersRenderEnd} </span> */}
-            {/* <span className={css.spanFollowers}>{followers.toString().slice(0, -3)},{followers.toString().slice(-3)}</span> */}
-            <span className={css.spanFollowers}>{followers.toString().slice(0, -3)},{arrTrigger[id-1] ? (followers + 1).toString().slice(-3) : followers.toString().slice(-3)}</span>
+            <span className={css.spanFollowers}>{followers.toString().slice(0, -3)},{followers.toString().slice(-3)}</span>
+            {/* <span className={css.spanFollowers}>{followers.toString().slice(0, -3)},{arrTrigger[id-1] ? (followers + 1).toString().slice(-3) : followers.toString().slice(-3)}</span> */}
             {/* <span
               className={css.spanFollowers}
             >
