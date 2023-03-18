@@ -1,3 +1,8 @@
+// import {
+//   useState,
+//   useEffect
+// } from 'react';
+
 // import useLocalStorage from './hooks/useLocalStorage'; //?
 // import useArrLocalStorage from './hooks/useArrLocalStorage'; //?
 
@@ -12,11 +17,19 @@
 import {ContactItem} from './ContactItem/ContactItem.jsx';
 //! DB contacts
 import contacts from 'db/contacts.json';
+import contacts2 from 'db/contacts2.json';
 
 import css from './App.module.css';
 
 
 export const App = () => {
+  // const [start, setStart] = useState(0);
+  // let start = 10;
+  // console.log("start_ДО:", start); //!
+  // useEffect(() => {
+  //   setStart(false)
+  // }, []);
+
   //! DB contacts
   // const contactsLength = contacts.length
   // console.log("contacts:", contacts); //!
@@ -81,13 +94,15 @@ export const App = () => {
   //   console.log(contacts[idNumber].followers);
   // };
 
-  
+  // console.log("start:", start); //!
   return (
     <>
       <ul className={css.cardList}>
+        {/* <p>{start}</p> */}
         <ContactItem
           contacts={contacts}
-          // trigger={trigger}
+          contacts2={contacts2}
+          // start={start}
           // toggleTrigger={toggleTrigger}
         />
       </ul>

@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "user": "Elon Reeve Musk",
+    "tweets": 111,
+    "followers": 100500,
+    "avatar": "url.jpg"
+  },
+  {
+    "id": 2,
+    "user": "Chaim Lewis",
+    "tweets": 222,
+    "followers": 2500,
+    "avatar": "url.jpg"
+  },
+  {
+    "id": 3,
+    "user": "Kennedy Lane",
+    "tweets": 333,
+    "followers": 30500,
+    "avatar": "url.jpg"
+  },
+  {
+    "id": 4,
+    "user": "Wylie Pope",
+    "tweets": 444,
+    "followers": 400500,
+    "avatar": "url.jpg"
+  },
+  {
+    "id": 5,
+    "user": "Cyrus Jackson",
+    "tweets": 555,
+    "followers": 5500,
+    "avatar": "url.jpg"
+  },
+  {
+    "id": 6,
+    "user": "Abbot Franks",
+    "tweets": 666,
+    "followers": 60500,
+    "avatar": "url.jpg"
+  },
+  {
+    "id": 7,
+    "user": "Reuben Henry",
+    "tweets": 777,
+    "followers": 700500,
+    "avatar": "url.jpg"
+  },
+  {
+    "id": 8,
+    "user": "Simon Morton",
+    "tweets": 888,
+    "followers": 8500,
+    "avatar": "url.jpg"
+  },
+  {
+    "id": 9,
+    "user": "Thomas Lucas",
+    "tweets": 999,
+    "followers": 90500,
+    "avatar": "url.jpg"
+  },
+  {
+    "id": 10,
+    "user": "Alec Howard",
+    "tweets": 1010,
+    "followers": 1000500,
+    "avatar": "url.jpg"
+  }
+]

@@ -20,11 +20,11 @@ import rectangle from 'images/rectangle.svg';
 import css from './ContactItem.module.css';
 
 
-export const ContactItem = ({ contacts }) => {
+export const ContactItem = ({ contacts, contacts2 }) => {
   const [contactFollowers, setContactFollowers] = useState(null);
 
-  const [start, setStart] = useState(true);
-  console.log("start_ДО:", start); //!
+  // const [start, setStart] = useState(true);
+  // console.log("start_ДО:", start); //!
   // useEffect(() => {
   //   setStart(true)
   // }, []);
@@ -42,7 +42,6 @@ export const ContactItem = ({ contacts }) => {
 
 
   
-
   //! arrFollowers - массив, наполняющий Local Storage дефолтными значениями = false
   let arrFollowers = [];
   for (let i = 0; i < contactsLength; i += 1) {
@@ -73,7 +72,7 @@ export const ContactItem = ({ contacts }) => {
   });
 
 
-  console.log("arrTrigger ПОСЛЕ:", arrTrigger); //!
+  // console.log("arrTrigger ПОСЛЕ:", arrTrigger); //!
 
 
   //?----------------------------------------------------------------
@@ -82,10 +81,10 @@ export const ContactItem = ({ contacts }) => {
     const idNumber = Number(id) - 1;
     console.log("idNumber:", idNumber); //!
 
-    if (start && arrTrigger[idNumber]) {
-      contacts[idNumber].followers = contacts[idNumber].followers + 1
-    };
-    setStart(false);
+    // if (start && arrTrigger[idNumber]) {
+    //   contacts[idNumber].followers = contacts[idNumber].followers + 1
+    // };
+        // setStart(false);
 
     for (let i = 0; i < contactsLength; i += 1) {
       if (i === idNumber) {
@@ -98,28 +97,39 @@ export const ContactItem = ({ contacts }) => {
           if (arrTrigger[idNumber]) {
             console.log(`TRUE-->arrTrigger[${idNumber}]:`, arrTrigger[idNumber]); //!
             contacts[idNumber].followers = contacts[idNumber].followers + 1;
-            console.log(`contacts[${idNumber}].followers`, contacts[idNumber].followers); //!
-            setContactFollowers(contacts[idNumber].followers) 
+            // contacts2[idNumber].followers = contacts2[idNumber].followers + 1;
+            // start = start + 1
+            // console.log("TRUE-->start:", start); //!
+            // console.log(`contacts[${idNumber}].followers`, contacts[idNumber].followers); //!
+            // setContactFollowers(contacts[idNumber].followers) 
             // console.log("TRUE-->contactFollowers:", contactFollowers); //!
+            // start = !start
           } else {
-          console.log("FALSE-->arrTrigger[idNumber]:", arrTrigger[idNumber]); //!
+            console.log("FALSE-->arrTrigger[idNumber]:", arrTrigger[idNumber]); //!
             contacts[idNumber].followers = contacts[idNumber].followers - 1;
-            console.log(contacts[idNumber].followers); //!
-            setContactFollowers(contacts[idNumber].followers) 
+            // contacts2[idNumber].followers = contacts2[idNumber].followers - 1;
+            // start = start - 1
+            // console.log("FALSE-->start:", start); //!
+            // console.log(`contacts[${idNumber}].followers`, contacts[idNumber].followers); //!
+            // setContactFollowers(contacts[idNumber].followers) 
             // console.log("FALSE-->contactFollowers:", contactFollowers); //!
-          };
+            
+        };
+        // start = !start
         // console.log(contacts[idNumber].followers); //!
-        // setContactFollowers(contacts[idNumber].followers) 
+        setContactFollowers(contacts[idNumber].followers) 
         // console.log("contactFollowers:", contactFollowers);
-
 
         setArrTrigger(arrTrigger);
         localStorage.setItem("ArrFollowers", JSON.stringify(arrTrigger));
         return
       }
     };
+    // start = start + 10
+    // setStart(!start);
   };
 
+  // start = start + 10
   console.log("contactFollowers:", contactFollowers); //!
 
   // let followersRenderStart = "";
@@ -138,11 +148,13 @@ export const ContactItem = ({ contacts }) => {
   //   }
   // }
   
-  console.log("start_ПОСЛЕ:", start); //!
+  // console.log("start_ПОСЛЕ:", start); //!
 
   return (
     <>
       {contacts.map(({ id, user, tweets, followers }) => (
+        // console.log(followers),
+        // console.log(contacts2[0].followers),
         // followersRenderStart = followers.toString().slice(0, -3),
         // followersRenderEnd = followers.toString().slice(-3),
         // followersRenderAllTrue = `${followers.toString().slice(0, -3)},${(followers + 1).toString().slice(-3)}`,
@@ -153,7 +165,7 @@ export const ContactItem = ({ contacts }) => {
         // const id = contact.id,
         // { id, user, tweets, followers } = contact,
         // followersString = followers.toString(),
-        // console.log(followersString),
+        
         // followersRenderStart = followersString.slice(0, -3),
         // console.log(followersRenderStart),
         // followersRenderEnd = followersString.slice(-3),
@@ -161,7 +173,9 @@ export const ContactItem = ({ contacts }) => {
         <div
           key={id}
           className={css.card}>
-          {/* //! logo */}
+          {/* <p>{contacts2[0].followers}</p> */}
+            {/* //! logo */}
+          {/* <p>{contacts2[0]}</p> */}
           <img className={css.logo}
               src={logo}
             alt=""
@@ -200,8 +214,8 @@ export const ContactItem = ({ contacts }) => {
           <p className={css.followers}
           >
               {/* <span className={css.spanFollowers}>{followersRenderStart},{followersRenderEnd} </span> */}
-            {/* <span className={css.spanFollowers}>{followers.toString().slice(0, -3)},{followers.toString().slice(-3)}</span> */}
-            <span className={css.spanFollowers}>{followers.toString().slice(0, -3)},{arrTrigger[id-1] && start ? (followers + 1).toString().slice(-3) : followers.toString().slice(-3)}</span>
+            <span className={css.spanFollowers}>{followers.toString().slice(0, -3)},{followers.toString().slice(-3)}</span>
+            {/* <span className={css.spanFollowers}>{followers.toString().slice(0, -3)},{arrTrigger[id-1] ? (followers + 1).toString().slice(-3) : followers.toString().slice(-3)}</span> */}
             {/* <span
               className={css.spanFollowers}
             >
