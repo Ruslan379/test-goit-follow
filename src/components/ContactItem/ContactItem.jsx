@@ -170,8 +170,8 @@ export const ContactItem = ({ contacts }) => {
           <p className={css.followers}
           >
               {/* <span className={css.spanFollowers}>{followersRenderStart},{followersRenderEnd} </span> */}
-            {/* <span className={css.spanFollowers}>{followers.toString().slice(0, -3)},{followers.toString().slice(-3)}</span> */}
-            <span
+            <span className={css.spanFollowers}>{followers.toString().slice(0, -3)},{followers.toString().slice(-3)}</span>
+            {/* <span
               className={css.spanFollowers}
             >
               {arrTrigger[id - 1]
@@ -181,7 +181,7 @@ export const ContactItem = ({ contacts }) => {
                 :
                 [followers.toString().slice(0, -3), followers.toString().slice(-3)]
               }
-            </span>
+            </span> */}
               &nbsp;FOLLOWERS
           </p>
           {/* //! Trigger button */}
