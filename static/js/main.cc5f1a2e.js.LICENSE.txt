@@ -38,9 +38,15 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+//!
+
 //! --------------- Преобразование 100500(100501) --> 100,500(100,501) ---------------
 
+//! ArrFollowers - массив, наполняющий Local Storage дефолтными значениями = false
+
 //! DB contacts
+
+//! DB contacts + length
 
 //! Input data
 
