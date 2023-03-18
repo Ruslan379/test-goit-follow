@@ -22,83 +22,100 @@ import css from './ContactItem.module.css';
 
 export const ContactItem = ({ contacts }) => {
   //! DB contacts + length
-  console.log("contacts --> ContactItem:", contacts); //!
+  // console.log("contacts --> ContactItem:", contacts); //!
   const contactsLength = contacts.length;
   console.log("contactsLength:", contactsLength); //!
 
 
-  // const [arrTrigger, setArrTrigger] = useArrLocalStorage("ArrFollowers", ArrFollowers);
+  // const [arrTrigger, setArrTrigger] = useArrLocalStorage("ArrFollowers", arrFollowers);
 
   // const [trigger, setTrigger] = useLocalStorage("Followers", false);
   // console.log("ContactItem --> trigger:", trigger); //!
 
-  //! ArrFollowers - массив, наполняющий Local Storage дефолтными значениями = false
-  let ArrFollowers = [];
+
+  const [contactFollowers, setContactFollowers] = useState(null);
+
+  //! arrFollowers - массив, наполняющий Local Storage дефолтными значениями = false
+  let arrFollowers = [];
   for (let i = 0; i < contactsLength; i += 1) {
-    ArrFollowers[i] = false;
-    // localStorage.setItem("ArrFollowers", JSON.stringify(ArrFollowers));
+    arrFollowers[i] = false;
+    // localStorage.setItem("ArrFollowers", JSON.stringify(arrFollowers));
   };
-  console.log("ArrFollowers:", ArrFollowers); //!
+  // console.log("ArrFollowers:", arrFollowers); //!
 
   // const localStorageStart = JSON.parse(localStorage.getItem("ArrFollowers")) ?? []
   // console.log("localStorageStart:", localStorageStart); //!
 
-  // if (arrTrigger.length)
-    
-  const [arrTrigger, setArrTrigger] = useState(() => {
-    return JSON.parse(localStorage.getItem("ArrFollowers")) ?? ArrFollowers
-  });
-  // console.log("arrTrigger:", arrTrigger); //!
+
+  // const [arrTrigger, setArrTrigger] = useState(() => {
+  //   return JSON.parse(localStorage.getItem("ArrFollowers")) ?? arrFollowers
+  // });
+
+  const [arrTrigger, setArrTrigger] = useState(
+    JSON.parse(localStorage.getItem("ArrFollowers")) ?? arrFollowers
+  );
 
   useEffect(() => {
     localStorage.setItem("ArrFollowers", JSON.stringify(arrTrigger));
+    console.log("ЗАПИСЬ в Local Storage:", arrTrigger);
+
+    const localStorageGet = JSON.parse(localStorage.getItem("ArrFollowers"))
+    console.log("ЧТЕНИЕ из Local Storage:", localStorageGet); //!
   }, [arrTrigger]);
 
   // const localStorageGet = JSON.parse(localStorage.getItem("ArrFollowers"))
-  // console.log("localStorageGet:", localStorageGet); //!
+  // console.log("ЧТЕНИЕ из Local Storage:", localStorageGet); //!
 
   console.log("arrTrigger ПОСЛЕ:", arrTrigger); //!
 
 
   //?----------------------------------------------------------------
+  // let contactFollowers = null
   const toggleTrigger = (id) => {
-
-    console.log("id:", id);
+    console.log("id:", id); //!
     const idNumber = Number(id) - 1;
-    console.log("idNumber:", idNumber);
+    console.log("idNumber:", idNumber); //!
 
     setArrTrigger(!arrTrigger.idNumber);
 
-    if (arrTrigger.idNumber) {
+    if (arrTrigger[idNumber]) {
+      console.log("TRUE-->arrTrigger[idNumber]:", arrTrigger[idNumber]); //!
       contacts[idNumber].followers = contacts[idNumber].followers - 1;
     } else {
+      console.log("FALSE-->arrTrigger[idNumber]:", arrTrigger[idNumber]); //!
       contacts[idNumber].followers = contacts[idNumber].followers + 1;
     };
-    console.log(contacts[idNumber].followers);
+    console.log(contacts[idNumber].followers); //!
+    setContactFollowers(contacts[idNumber].followers) 
+    // console.log("contactFollowers:", contactFollowers);
 
     for (let i = 0; i < contactsLength; i += 1) {
       if (i === idNumber) {
         console.log("i:", i); //!
         console.log("idNumber:", idNumber); //!
         arrTrigger[i] = !arrTrigger[i]
-        console.log(`toggleTrigger --> arrTrigger{i}:`, arrTrigger[i]); //!
+        console.log(`toggleTrigger --> arrTrigger[${i}]:`, arrTrigger[i]); //!
         console.log("toggleTrigger --> arrTrigger:", arrTrigger); //!
         setArrTrigger(arrTrigger);
+        localStorage.setItem("ArrFollowers", JSON.stringify(arrTrigger));
         return
       }
     };
   };
 
+  console.log("contactFollowers:", contactFollowers); //!
+
+  // let followersRenderStart = "";
+  // let followersRenderEnd = "";
+  // let followersRenderAll = "";
 
 
   return (
     <>
-      {/* {contacts.map(({ id, user, tweets, followers }) => ( */}
-      {contacts.map((
-        contact,
-        // trigger,
-        // toggleTrigger
-      ) => (
+      {contacts.map(({ id, user, tweets, followers }) => (
+        // followersRenderStart = followers.toString().slice(0, -3),
+        // followersRenderEnd = followers.toString().slice(-3),
+        // followersRenderAll = `${followersRenderStart} ${followersRenderEnd}`,
         // idNumber = Number(contact.id) - 1,
         // console.log(idNumber),
         // console.log(contact),
@@ -112,7 +129,7 @@ export const ContactItem = ({ contacts }) => {
         // followersRenderEnd = followersString.slice(-3),
         // console.log(followersRenderEnd),
         <div
-          key={contact.id}
+          key={id}
           className={css.card}>
           {/* //! logo */}
           <img className={css.logo}
@@ -142,28 +159,39 @@ export const ContactItem = ({ contacts }) => {
           {/* //! user name */}
           <p className={css.userName}
           >
-            {contact.user}
+            {user}
           </p>
           {/* //! tweets */}
           <p className={css.tweets}
           >
-            {contact.tweets} tweets
+            {tweets} tweets
           </p>
           {/* //! FOLLOWERS */}
           <p className={css.followers}
           >
               {/* <span className={css.spanFollowers}>{followersRenderStart},{followersRenderEnd} </span> */}
-              <span className={css.spanFollowers}>{contact.followers.toString().slice(0, -3)},{contact.followers.toString().slice(-3)} </span>
-            FOLLOWERS
+            {/* <span className={css.spanFollowers}>{followers.toString().slice(0, -3)},{followers.toString().slice(-3)}</span> */}
+            <span
+              className={css.spanFollowers}
+            >
+              {arrTrigger[id - 1]
+                ?
+                  [followers.toString().slice(0, -3), (followers + 1).toString().slice(-3)]
+                  // followersRenderAll
+                :
+                [followers.toString().slice(0, -3), followers.toString().slice(-3)]
+              }
+            </span>
+              &nbsp;FOLLOWERS
           </p>
           {/* //! Trigger button */}
           <button
             type="button"
-            // className={trigger ? css.btnFOLLOWING : css.btnFOLLOW}
-            onClick={() => {toggleTrigger(contact.id)}}
+            className={arrTrigger[id-1] ? css.btnFOLLOWING : css.btnFOLLOW}
+            onClick={() => {toggleTrigger(id)}}
           >
-            FOLLOW
-            {/* {trigger ? "FOLLOWING" : "FOLLOW"} */}
+            {/* FOLLOW */}
+            {arrTrigger[id-1] ? "FOLLOWING" : "FOLLOW"}
           </button>
         </div>
       ))}
