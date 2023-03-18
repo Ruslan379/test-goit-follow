@@ -21,6 +21,14 @@ import css from './ContactItem.module.css';
 
 
 export const ContactItem = ({ contacts }) => {
+  const [contactFollowers, setContactFollowers] = useState(null);
+
+  const [start, setStart] = useState(true);
+  console.log("start_ДО:", start); //!
+  // useEffect(() => {
+  //   setStart(true)
+  // }, []);
+
   //! DB contacts + length
   // console.log("contacts --> ContactItem:", contacts); //!
   const contactsLength = contacts.length;
@@ -33,7 +41,7 @@ export const ContactItem = ({ contacts }) => {
   // console.log("ContactItem --> trigger:", trigger); //!
 
 
-  const [contactFollowers, setContactFollowers] = useState(null);
+  
 
   //! arrFollowers - массив, наполняющий Local Storage дефолтными значениями = false
   let arrFollowers = [];
@@ -46,11 +54,12 @@ export const ContactItem = ({ contacts }) => {
   // const localStorageStart = JSON.parse(localStorage.getItem("ArrFollowers")) ?? []
   // console.log("localStorageStart:", localStorageStart); //!
 
-
+  //! var.1
   // const [arrTrigger, setArrTrigger] = useState(() => {
   //   return JSON.parse(localStorage.getItem("ArrFollowers")) ?? arrFollowers
   // });
 
+  //! var.2
   const [arrTrigger, setArrTrigger] = useState(
     JSON.parse(localStorage.getItem("ArrFollowers")) ?? arrFollowers
   );
@@ -69,6 +78,7 @@ export const ContactItem = ({ contacts }) => {
 
   //?----------------------------------------------------------------
   const toggleTrigger = (id) => {
+    setStart(false)
     console.log("id:", id); //!
     const idNumber = Number(id) - 1;
     console.log("idNumber:", idNumber); //!
@@ -113,6 +123,18 @@ export const ContactItem = ({ contacts }) => {
   // let followersRenderAllTrue = "";
   // let followersRenderAllFalse = "";
 
+
+  // for (let i = 0; i < contactsLength; i += 1) {
+  //   if (arrTrigger[i]) {
+  //     console.log(`TRUE-->arrTrigger[${i}]:`, arrTrigger[i]); //!
+  //     contacts[i].followers = contacts[i].followers + 1;
+  //     console.log(`contacts[${i}].followers`, contacts[i].followers); //!
+  //     // setContactFollowers(contacts[i].followers) 
+  //     // console.log("TRUE-->contactFollowers:", contactFollowers); //!
+  //   }
+  // }
+  
+  console.log("start_ПОСЛЕ:", start); //!
 
   return (
     <>
@@ -174,8 +196,8 @@ export const ContactItem = ({ contacts }) => {
           <p className={css.followers}
           >
               {/* <span className={css.spanFollowers}>{followersRenderStart},{followersRenderEnd} </span> */}
-            <span className={css.spanFollowers}>{followers.toString().slice(0, -3)},{followers.toString().slice(-3)}</span>
-            {/* <span className={css.spanFollowers}>{followers.toString().slice(0, -3)},{arrTrigger[id-1] ? (followers + 1).toString().slice(-3) : followers.toString().slice(-3)}</span> */}
+            {/* <span className={css.spanFollowers}>{followers.toString().slice(0, -3)},{followers.toString().slice(-3)}</span> */}
+            <span className={css.spanFollowers}>{followers.toString().slice(0, -3)},{arrTrigger[id-1] && start ? (followers + 1).toString().slice(-3) : followers.toString().slice(-3)}</span>
             {/* <span
               className={css.spanFollowers}
             >
