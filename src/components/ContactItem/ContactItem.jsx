@@ -78,10 +78,14 @@ export const ContactItem = ({ contacts }) => {
 
   //?----------------------------------------------------------------
   const toggleTrigger = (id) => {
-    setStart(false)
     console.log("id:", id); //!
     const idNumber = Number(id) - 1;
     console.log("idNumber:", idNumber); //!
+
+    if (start && arrTrigger[idNumber]) {
+      contacts[idNumber].followers = contacts[idNumber].followers + 1
+    };
+    setStart(false);
 
     for (let i = 0; i < contactsLength; i += 1) {
       if (i === idNumber) {
