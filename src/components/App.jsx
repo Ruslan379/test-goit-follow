@@ -1,4 +1,5 @@
 // import useLocalStorage from './hooks/useLocalStorage'; //?
+// import useArrLocalStorage from './hooks/useArrLocalStorage'; //?
 
 //! images
 // import logo from 'images/logo.svg'; //?
@@ -16,14 +17,28 @@ import css from './App.module.css';
 
 
 export const App = () => {
+  //! DB contacts
+  // const contactsLength = contacts.length
+  // console.log("contacts:", contacts); //!
+  // console.log("contactsLength:", contactsLength); //!
+
   // const [trigger, setTrigger] = useLocalStorage("Followers", false);
   // console.log("trigger:", trigger); //!
+
+  
+  // let ArrFollowers = []
+  // for (let i = 0; i < contactsLength; i += 1) {
+  //   ArrFollowers[i] = false
+  //     console.log(i);
+  // };
+  // console.log("ArrFollowers:", ArrFollowers); //!
+  // const [arrTrigger, setArrTrigger] = useArrLocalStorage("ArrFollowers", ArrFollowers);
+  // console.log("arrTrigger:", arrTrigger); //!
 
   //! Input data
   // const tweets = 777;
   // let followers = 100500;
-  //! DB contacts
-  // console.log("contacts:", contacts); //!
+  
 
   //! --------------- Преобразование 100500(100501) --> 100,500(100,501) ---------------
   // let followersString = followers.toString()
@@ -48,11 +63,33 @@ export const App = () => {
   //   setTrigger(!trigger);
   // };
 
+
+  //?----------------------------------------------------------------
+  // const toggleTrigger = (id) => {
+
+  //   setArrTrigger(!trigger);
+
+  //   console.log("id:", id);
+  //   const idNumber = Number(id) - 1;
+  //   console.log("idNumber:", idNumber);
+
+  //   if (trigger) {
+  //     contacts[idNumber].followers = contacts[idNumber].followers - 1;
+  //   } else {
+  //     contacts[idNumber].followers = contacts[idNumber].followers + 1;
+  //   };
+  //   console.log(contacts[idNumber].followers);
+  // };
+
   
   return (
     <>
       <ul className={css.cardList}>
-          <ContactItem contacts={contacts} />
+        <ContactItem
+          contacts={contacts}
+          // trigger={trigger}
+          // toggleTrigger={toggleTrigger}
+        />
       </ul>
       
     </>

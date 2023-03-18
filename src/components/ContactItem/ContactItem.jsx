@@ -1,4 +1,10 @@
-import useLocalStorage from '../hooks/useLocalStorage';
+import {
+  useState,
+  useEffect
+} from 'react';
+
+// import useLocalStorage from '../hooks/useLocalStorage';
+// import useArrLocalStorage from '../hooks/useArrLocalStorage'; //?
 
 //! images
 import logo from 'images/logo.svg';
@@ -14,52 +20,91 @@ import rectangle from 'images/rectangle.svg';
 import css from './ContactItem.module.css';
 
 
-export const ContactItem = ({contacts}) => {
-  const [trigger, setTrigger] = useLocalStorage("Followers", false);
-  // console.log("trigger:", trigger); //!
-
-  //! Input data
-  // const tweets = 777;
-  // let followers = 100500;
-  //! DB contacts
+export const ContactItem = ({ contacts }) => {
+  //! DB contacts + length
   console.log("contacts --> ContactItem:", contacts); //!
+  const contactsLength = contacts.length;
+  console.log("contactsLength:", contactsLength); //!
 
-  //! --------------- Преобразование 100500(100501) --> 100,500(100,501) ---------------
-  // let followersString = followers.toString();
-  // let followersString = ""
-  // // console.log("followers:", followers); //!
-  // // console.log("followersString:", followersString); //!
-  
-  // if (trigger) {
-  //   followers = followers + 1;
-  //   followersString = followers.toString();
-  //   // console.log("followers1:", followers); //!
-  //   // console.log("followersString1:", followersString); //!
-  // };
 
-  // let followersRenderStart = followersString.slice(0, -3);
-  // // console.log("followersRenderStart:", followersRenderStart); //!
+  // const [arrTrigger, setArrTrigger] = useArrLocalStorage("ArrFollowers", ArrFollowers);
 
-  // let followersRenderEnd = followersString.slice(-3);
-  // // console.log("followersRenderEnd:", followersRenderEnd); //!
-  //! _______________ Преобразование 00500(100501) --> 100,500(100,501) _______________
+  // const [trigger, setTrigger] = useLocalStorage("Followers", false);
+  // console.log("ContactItem --> trigger:", trigger); //!
 
+  //! ArrFollowers - массив, наполняющий Local Storage дефолтными значениями = false
+  let ArrFollowers = [];
+  for (let i = 0; i < contactsLength; i += 1) {
+    ArrFollowers[i] = false;
+    // localStorage.setItem("ArrFollowers", JSON.stringify(ArrFollowers));
+  };
+  console.log("ArrFollowers:", ArrFollowers); //!
+
+  // const localStorageStart = JSON.parse(localStorage.getItem("ArrFollowers")) ?? []
+  // console.log("localStorageStart:", localStorageStart); //!
+
+  // if (arrTrigger.length)
+    
+  const [arrTrigger, setArrTrigger] = useState(() => {
+    return JSON.parse(localStorage.getItem("ArrFollowers")) ?? ArrFollowers
+  });
+  // console.log("arrTrigger:", arrTrigger); //!
+
+  useEffect(() => {
+    localStorage.setItem("ArrFollowers", JSON.stringify(arrTrigger));
+  }, [arrTrigger]);
+
+  // const localStorageGet = JSON.parse(localStorage.getItem("ArrFollowers"))
+  // console.log("localStorageGet:", localStorageGet); //!
+
+  console.log("arrTrigger ПОСЛЕ:", arrTrigger); //!
+
+
+  //?----------------------------------------------------------------
   const toggleTrigger = (id) => {
+
     console.log("id:", id);
     const idNumber = Number(id) - 1;
-    setTrigger(!trigger);
     console.log("idNumber:", idNumber);
 
-    if (trigger) {
+    setArrTrigger(!arrTrigger.idNumber);
+
+    if (arrTrigger.idNumber) {
+      contacts[idNumber].followers = contacts[idNumber].followers - 1;
+    } else {
       contacts[idNumber].followers = contacts[idNumber].followers + 1;
     };
     console.log(contacts[idNumber].followers);
+
+    for (let i = 0; i < contactsLength; i += 1) {
+      if (i === idNumber) {
+        console.log("i:", i); //!
+        console.log("idNumber:", idNumber); //!
+        arrTrigger[i] = !arrTrigger[i]
+        console.log(`toggleTrigger --> arrTrigger{i}:`, arrTrigger[i]); //!
+        console.log("toggleTrigger --> arrTrigger:", arrTrigger); //!
+        setArrTrigger(arrTrigger);
+        return
+      }
+    };
   };
 
-  
+
+
   return (
     <>
-      {contacts.map(({ id, user, tweets, followers }) => (
+      {/* {contacts.map(({ id, user, tweets, followers }) => ( */}
+      {contacts.map((
+        contact,
+        // trigger,
+        // toggleTrigger
+      ) => (
+        // idNumber = Number(contact.id) - 1,
+        // console.log(idNumber),
+        // console.log(contact),
+        // const id = contact.id,
+        // { id, user, tweets, followers } = contact,
+
         // followersString = followers.toString(),
         // console.log(followersString),
         // followersRenderStart = followersString.slice(0, -3),
@@ -67,7 +112,7 @@ export const ContactItem = ({contacts}) => {
         // followersRenderEnd = followersString.slice(-3),
         // console.log(followersRenderEnd),
         <div
-          key={id}
+          key={contact.id}
           className={css.card}>
           {/* //! logo */}
           <img className={css.logo}
@@ -97,28 +142,28 @@ export const ContactItem = ({contacts}) => {
           {/* //! user name */}
           <p className={css.userName}
           >
-            {user}
+            {contact.user}
           </p>
           {/* //! tweets */}
           <p className={css.tweets}
           >
-            {tweets} tweets
+            {contact.tweets} tweets
           </p>
           {/* //! FOLLOWERS */}
           <p className={css.followers}
           >
               {/* <span className={css.spanFollowers}>{followersRenderStart},{followersRenderEnd} </span> */}
-              <span className={css.spanFollowers}>{followers.toString().slice(0, -3)},{followers.toString().slice(-3)} </span>
+              <span className={css.spanFollowers}>{contact.followers.toString().slice(0, -3)},{contact.followers.toString().slice(-3)} </span>
             FOLLOWERS
           </p>
           {/* //! Trigger button */}
           <button
             type="button"
-            className={trigger ? css.btnFOLLOWING : css.btnFOLLOW}
-            onClick={() => toggleTrigger(id)}
+            // className={trigger ? css.btnFOLLOWING : css.btnFOLLOW}
+            onClick={() => {toggleTrigger(contact.id)}}
           >
-            {/* FOLLOW */}
-            {trigger ? "FOLLOWING" : "FOLLOW"}
+            FOLLOW
+            {/* {trigger ? "FOLLOWING" : "FOLLOW"} */}
           </button>
         </div>
       ))}
