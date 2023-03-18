@@ -76,7 +76,7 @@ export const ContactItem = ({ contacts }) => {
     const idNumber = Number(id) - 1;
     console.log("idNumber:", idNumber); //!
 
-    setArrTrigger(!arrTrigger.idNumber);
+    // setArrTrigger(!arrTrigger[idNumber]);
 
     if (arrTrigger[idNumber]) {
       console.log("TRUE-->arrTrigger[idNumber]:", arrTrigger[idNumber]); //!
@@ -107,7 +107,8 @@ export const ContactItem = ({ contacts }) => {
 
   // let followersRenderStart = "";
   // let followersRenderEnd = "";
-  // let followersRenderAll = "";
+  let followersRenderAllTrue = "";
+  let followersRenderAllFalse = "";
 
 
   return (
@@ -115,7 +116,8 @@ export const ContactItem = ({ contacts }) => {
       {contacts.map(({ id, user, tweets, followers }) => (
         // followersRenderStart = followers.toString().slice(0, -3),
         // followersRenderEnd = followers.toString().slice(-3),
-        // followersRenderAll = `${followersRenderStart} ${followersRenderEnd}`,
+        followersRenderAllTrue = `${followers.toString().slice(0, -3)},${(followers + 1).toString().slice(-3)}`,
+        followersRenderAllFalse = `${followers.toString().slice(0, -3)},${followers.toString().slice(-3)}`,
         // idNumber = Number(contact.id) - 1,
         // console.log(idNumber),
         // console.log(contact),
@@ -170,18 +172,19 @@ export const ContactItem = ({ contacts }) => {
           <p className={css.followers}
           >
               {/* <span className={css.spanFollowers}>{followersRenderStart},{followersRenderEnd} </span> */}
-            <span className={css.spanFollowers}>{followers.toString().slice(0, -3)},{followers.toString().slice(-3)}</span>
-            {/* <span
+            {/* <span className={css.spanFollowers}>{followers.toString().slice(0, -3)},{followers.toString().slice(-3)}</span> */}
+            <span
               className={css.spanFollowers}
             >
-              {arrTrigger[id - 1]
+              {arrTrigger[id - 1] 
                 ?
-                  [followers.toString().slice(0, -3), (followers + 1).toString().slice(-3)]
-                  // followersRenderAll
+                // [followers.toString().slice(0, -3), (followers + 1).toString().slice(-3)]
+                followersRenderAllTrue
                 :
-                [followers.toString().slice(0, -3), followers.toString().slice(-3)]
+                // [followers.toString().slice(0, -3), followers.toString().slice(-3)]
+                followersRenderAllFalse
               }
-            </span> */}
+            </span>
               &nbsp;FOLLOWERS
           </p>
           {/* //! Trigger button */}
