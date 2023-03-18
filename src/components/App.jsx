@@ -6,7 +6,10 @@ import logo from 'images/logo.svg';
 import picture from 'images/picture2.svg'; 
 // import { ReactComponent as Avatar } from 'images/boy.svg';
 import avatar from 'images/boy.svg'; 
-import rectangle from 'images/rectangle.svg'; 
+import rectangle from 'images/rectangle.svg';
+
+//! DB contacts
+import contacts from 'db/contacts.json';
 
 import css from './App.module.css';
 
@@ -16,8 +19,10 @@ export const App = () => {
   // console.log("trigger:", trigger); //!
 
   //! Input data
-  const tweets = 777;
+  // const tweets = 777;
   let followers = 100500;
+  //! DB contacts
+  console.log("contacts:", contacts); //!
 
   //! --------------- Преобразование 100500(100501) --> 100,500(100,501) ---------------
   let followersString = followers.toString()
@@ -44,52 +49,58 @@ export const App = () => {
 
   
   return (
-    <div className={css.card}>
-      {/* //! logo */}
-      <img className={css.logo}
-          src={logo}
-        alt=""
-        width="76"
-      />
-      {/* //! picture */}
-      {/* <Picture className={css.picture} /> */}
-      <img className={css.picture}
-                src={picture}
-                alt="" width="308"
-            />
-      {/* //! avatar */}
-      {/* <Avatar className={css.avatar} /> */}
-      <img className={css.avatar}
-          src={avatar}
-        alt=""
-        width="80"
-      />
-      {/* //! rectangle */}
-      <img className={css.rectangle}
-          src={rectangle}
-        alt=""
-        width="380"
-      />
-      {/* //! tweets */}
-      <p className={css.tweets}
-      >
-        {tweets} tweets
-      </p>
-      {/* //! FOLLOWERS */}
-      <p className={css.followers}
-      >
-        <span className={css.spanFollowers}>{followersRenderStart},{followersRenderEnd} </span>
-        FOLLOWERS
-      </p>
-      {/* //! Trigger button */}
-      <button
-          type="button"
-        className={trigger ? css.btnFOLLOWING : css.btnFOLLOW}
-          onClick={toggleTrigger}
-      >
-        {/* FOLLOW */}
-        {trigger ? "FOLLOWING" : "FOLLOW"}
-      </button>
-    </div>
+    <>
+      {contacts.map(({ id, user, tweets, followers }) => (
+        <div
+          key={id}
+          className={css.card}>
+          {/* //! logo */}
+          <img className={css.logo}
+              src={logo}
+            alt=""
+            width="76"
+          />
+          {/* //! picture */}
+          {/* <Picture className={css.picture} /> */}
+          <img className={css.picture}
+                    src={picture}
+                    alt="" width="308"
+                />
+          {/* //! avatar */}
+          {/* <Avatar className={css.avatar} /> */}
+          <img className={css.avatar}
+              src={avatar}
+            alt=""
+            width="80"
+          />
+          {/* //! rectangle */}
+          <img className={css.rectangle}
+            src={rectangle}
+            alt=""
+            width="380"
+          />
+          {/* //! tweets */}
+          <p className={css.tweets}
+          >
+            {tweets} tweets
+          </p>
+          {/* //! FOLLOWERS */}
+          <p className={css.followers}
+          >
+            <span className={css.spanFollowers}>{followersRenderStart},{followersRenderEnd} </span>
+            FOLLOWERS
+          </p>
+          {/* //! Trigger button */}
+          <button
+            type="button"
+            className={trigger ? css.btnFOLLOWING : css.btnFOLLOW}
+            onClick={toggleTrigger}
+          >
+            {/* FOLLOW */}
+            {trigger ? "FOLLOWING" : "FOLLOW"}
+          </button>
+        </div>
+      ))}
+    </>
   );
 };
