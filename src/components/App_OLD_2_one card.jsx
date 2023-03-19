@@ -84,7 +84,7 @@ export const App = () => {
       {/* //! Trigger button */}
       <button
           type="button"
-        className={trigger ? css.btnFOLLOWING : css.btnFOLLOW}
+          className={trigger ? css.btnFOLLOWING : css.btnFOLLOW}
           onClick={toggleTrigger}
       >
         {/* FOLLOW */}
