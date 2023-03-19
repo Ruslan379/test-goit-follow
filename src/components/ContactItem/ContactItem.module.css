@@ -3,9 +3,9 @@
 
     height: 460px;
     width: 380px;
-    margin-top: 168px;
-    margin-left: auto;
-    margin-right: auto;
+    /* margin-top: 168px; */
+    /* margin-left: auto; */
+    /* margin-right: auto; */
     
     display: flex;
     flex-direction: column;

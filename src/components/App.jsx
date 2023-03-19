@@ -9,7 +9,6 @@ export const App = () => {
       <ul className={css.cardList}>
         <ContactItem contacts={contacts}/>
       </ul>
-      
     </div>
   );
 };
