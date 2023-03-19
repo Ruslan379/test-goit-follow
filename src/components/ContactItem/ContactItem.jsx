@@ -20,8 +20,8 @@ import rectangle from 'images/rectangle.svg';
 import css from './ContactItem.module.css';
 
 
-export const ContactItem = ({ contacts, contacts2 }) => {
-  const [contactFollowers, setContactFollowers] = useState(null);
+export const ContactItem = ({ contacts, contats2 }) => {
+  // const [contactFollowers, setContactFollowers] = useState(null);
 
   // const [start, setStart] = useState(true);
   // console.log("start_ДО:", start); //!
@@ -69,6 +69,7 @@ export const ContactItem = ({ contacts, contacts2 }) => {
 
     const localStorageGet = JSON.parse(localStorage.getItem("ArrFollowers"))
     console.log("ЧТЕНИЕ из Local Storage:", localStorageGet); //!
+  // }, [arrTrigger]);
   });
 
 
@@ -76,104 +77,112 @@ export const ContactItem = ({ contacts, contacts2 }) => {
 
 
   //?----------------------------------------------------------------
-  const toggleTrigger = (id) => {
-    console.log("id:", id); //!
-    const idNumber = Number(id) - 1;
-    console.log("idNumber:", idNumber); //!
+  // const toggleTrigger = (id) => {
+  //   console.log("id:", id); //!
+  //   const idNumber = Number(id) - 1;
+  //   console.log("idNumber:", idNumber); //!
 
     // if (start && arrTrigger[idNumber]) {
     //   contacts[idNumber].followers = contacts[idNumber].followers + 1
     // };
         // setStart(false);
 
-    for (let i = 0; i < contactsLength; i += 1) {
-      if (i === idNumber) {
-        // console.log("i:", i); //!
-        // console.log("idNumber:", idNumber); //!
-        arrTrigger[i] = !arrTrigger[i]
-        console.log(`toggleTrigger --> arrTrigger[${i}]:`, arrTrigger[i]); //!
-        console.log("toggleTrigger --> arrTrigger:", arrTrigger); //!
+  //   for (let i = 0; i < contactsLength; i += 1) {
+  //     if (i === idNumber) {
+  //       // console.log("i:", i); //!
+  //       // console.log("idNumber:", idNumber); //!
+  //       arrTrigger[i] = !arrTrigger[i]
+  //       console.log(`toggleTrigger --> arrTrigger[${i}]:`, arrTrigger[i]); //!
+  //       console.log("toggleTrigger --> arrTrigger:", arrTrigger); //!
 
-          if (arrTrigger[idNumber]) {
-            console.log(`TRUE-->arrTrigger[${idNumber}]:`, arrTrigger[idNumber]); //!
-            contacts[idNumber].followers = contacts[idNumber].followers + 1;
-            // contacts2[idNumber].followers = contacts2[idNumber].followers + 1;
-            // start = start + 1
-            // console.log("TRUE-->start:", start); //!
-            // console.log(`contacts[${idNumber}].followers`, contacts[idNumber].followers); //!
-            // setContactFollowers(contacts[idNumber].followers) 
-            // console.log("TRUE-->contactFollowers:", contactFollowers); //!
-            // start = !start
-          } else {
-            console.log("FALSE-->arrTrigger[idNumber]:", arrTrigger[idNumber]); //!
-            contacts[idNumber].followers = contacts[idNumber].followers - 1;
-            // contacts2[idNumber].followers = contacts2[idNumber].followers - 1;
-            // start = start - 1
-            // console.log("FALSE-->start:", start); //!
-            // console.log(`contacts[${idNumber}].followers`, contacts[idNumber].followers); //!
-            // setContactFollowers(contacts[idNumber].followers) 
-            // console.log("FALSE-->contactFollowers:", contactFollowers); //!
+  //         if (arrTrigger[idNumber]) {
+  //           console.log(`TRUE-->arrTrigger[${idNumber}]:`, arrTrigger[idNumber]); //!
+  //           contacts[idNumber].followers = contacts[idNumber].followers + 1;
+  //           // contacts2[idNumber].followers = contacts2[idNumber].followers + 1;
+  //           // start = start + 1
+  //           // console.log("TRUE-->start:", start); //!
+  //           // console.log(`contacts[${idNumber}].followers`, contacts[idNumber].followers); //!
+  //           // setContactFollowers(contacts[idNumber].followers) 
+  //           // console.log("TRUE-->contactFollowers:", contactFollowers); //!
+  //           // start = !start
+  //         } else {
+  //           console.log("FALSE-->arrTrigger[idNumber]:", arrTrigger[idNumber]); //!
+  //           contacts[idNumber].followers = contacts[idNumber].followers - 1;
+  //           // contacts2[idNumber].followers = contacts2[idNumber].followers - 1;
+  //           // start = start - 1
+  //           // console.log("FALSE-->start:", start); //!
+  //           // console.log(`contacts[${idNumber}].followers`, contacts[idNumber].followers); //!
+  //           // setContactFollowers(contacts[idNumber].followers) 
+  //           // console.log("FALSE-->contactFollowers:", contactFollowers); //!
             
-        };
-        // start = !start
-        // console.log(contacts[idNumber].followers); //!
-        setContactFollowers(contacts[idNumber].followers) 
-        // console.log("contactFollowers:", contactFollowers);
+  //       };
+  //       // start = !start
+  //       // console.log(contacts[idNumber].followers); //!
+  //       setContactFollowers(contacts[idNumber].followers); //!!!!
+  //       // console.log("contactFollowers:", contactFollowers);
 
-        setArrTrigger(arrTrigger);
-        localStorage.setItem("ArrFollowers", JSON.stringify(arrTrigger));
-        return
-      }
-    };
-    // start = start + 10
-    // setStart(!start);
-  };
+  //       setArrTrigger(arrTrigger);
+  //       localStorage.setItem("ArrFollowers", JSON.stringify(arrTrigger));
+  //       return
+  //     }
+  //   };
+  //   // start = start + 10
+  //   // setStart(!start);
+  // };
 
   // start = start + 10
-  console.log("contactFollowers:", contactFollowers); //!
-
-  // let followersRenderStart = "";
-  // let followersRenderEnd = "";
-  // let followersRenderAllTrue = "";
-  // let followersRenderAllFalse = "";
+  // console.log("contactFollowers:", contactFollowers); //!
 
 
-  // for (let i = 0; i < contactsLength; i += 1) {
-  //   if (arrTrigger[i]) {
-  //     console.log(`TRUE-->arrTrigger[${i}]:`, arrTrigger[i]); //!
-  //     contacts[i].followers = contacts[i].followers + 1;
-  //     console.log(`contacts[${i}].followers`, contacts[i].followers); //!
-  //     // setContactFollowers(contacts[i].followers) 
-  //     // console.log("TRUE-->contactFollowers:", contactFollowers); //!
-  //   }
-  // }
   
-  // console.log("start_ПОСЛЕ:", start); //!
+    //!----------------------------------------------------------------
+  for (let idNumber = 0; idNumber < contactsLength; idNumber += 1) {
+    if (arrTrigger[idNumber]) {
+      console.log(`TRUE-->arrTrigger[${idNumber}]:`, arrTrigger[idNumber]); //!
+      contacts[idNumber].followers = contacts[idNumber].followers + 1;
+      console.log(`contacts[${idNumber}].followers`, contacts[idNumber].followers); //!
+    // } else {
+    //   console.log(`FALSE-->arrTrigger[${idNumber}]:`, arrTrigger[idNumber]); //!
+    //   contacts[idNumber].followers = contacts[idNumber].followers - 1;
+    //   console.log(`contacts[${idNumber}].followers`, contacts[idNumber].followers); //!
+    };
+  }
+    //!----------------------------------------------------------------
+    const toggleTrigger = (id) => {
+      console.log("id:", id); //!
+      const idNumber = Number(id) - 1;
+      console.log("idNumber:", idNumber); //!
+
+      console.log(`toggleTrigger --> arrTrigger[${idNumber}]_ДО:`, arrTrigger[idNumber]); //!
+      arrTrigger[idNumber] = !arrTrigger[idNumber];
+      console.log(`toggleTrigger --> arrTrigger[${idNumber}]_ПОСЛЕ:`, arrTrigger[idNumber]); //!
+
+      if (arrTrigger[idNumber]) {
+            console.log(`TRUE-->arrTrigger[${idNumber}]:`, arrTrigger[idNumber]); //!
+            contacts[idNumber].followers = contacts[idNumber].followers + 1;
+            console.log(`contacts[${idNumber}].followers`, contacts[idNumber].followers); //!
+          } else {
+            console.log(`FALSE-->arrTrigger[${idNumber}]:`, arrTrigger[idNumber]); //!
+            contacts[idNumber].followers = contacts[idNumber].followers - 1;
+            console.log(`contacts[${idNumber}].followers`, contacts[idNumber].followers); //!
+        };
+      
+      setArrTrigger(arrTrigger);
+      localStorage.setItem("ArrFollowers", JSON.stringify(arrTrigger));
+      return 
+    }
+
+    // //! Проверка results на пустой объект
+    // if (!movieReviews) {
+    //     return null;  
+    // }
 
   return (
     <>
       {contacts.map(({ id, user, tweets, followers }) => (
-        // console.log(followers),
-        // console.log(contacts2[0].followers),
-        // followersRenderStart = followers.toString().slice(0, -3),
-        // followersRenderEnd = followers.toString().slice(-3),
-        // followersRenderAllTrue = `${followers.toString().slice(0, -3)},${(followers + 1).toString().slice(-3)}`,
-        // followersRenderAllFalse = `${followers.toString().slice(0, -3)},${followers.toString().slice(-3)}`,
-        // idNumber = Number(contact.id) - 1,
-        // console.log(idNumber),
-        // console.log(contact),
-        // const id = contact.id,
-        // { id, user, tweets, followers } = contact,
-        // followersString = followers.toString(),
-        
-        // followersRenderStart = followersString.slice(0, -3),
-        // console.log(followersRenderStart),
-        // followersRenderEnd = followersString.slice(-3),
-        // console.log(followersRenderEnd),
         <div
           key={id}
           className={css.card}>
-          {/* <p>{contacts2[0].followers}</p> */}
             {/* //! logo */}
           {/* <p>{contacts2[0]}</p> */}
           <img className={css.logo}
@@ -214,8 +223,9 @@ export const ContactItem = ({ contacts, contacts2 }) => {
           <p className={css.followers}
           >
               {/* <span className={css.spanFollowers}>{followersRenderStart},{followersRenderEnd} </span> */}
-            <span className={css.spanFollowers}>{followers.toString().slice(0, -3)},{followers.toString().slice(-3)}</span>
-            {/* <span className={css.spanFollowers}>{followers.toString().slice(0, -3)},{arrTrigger[id-1] ? (followers + 1).toString().slice(-3) : followers.toString().slice(-3)}</span> */}
+            {/* <span className={css.spanFollowers}>{followers.toString().slice(0, -3)},{followers.toString().slice(-3)}</span> */}
+            {/* <span className={css.spanFollowers}>{followers.toString().slice(0, -3)},{arrTrigger[id - 1] ? (followers + 1).toString().slice(-3) : followers.toString().slice(-3)}</span> */}
+            <span className={css.spanFollowers}>{followers.toString().slice(0, -3)},{arrTrigger[id-1] ? followers.toString().slice(-3) : followers.toString().slice(-3)}</span>
             {/* <span
               className={css.spanFollowers}
             >
