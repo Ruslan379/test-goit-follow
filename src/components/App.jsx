@@ -17,7 +17,7 @@
 import {ContactItem} from './ContactItem/ContactItem.jsx';
 //! DB contacts
 import contacts from 'db/contacts.json';
-import contacts2 from 'db/contacts2.json';
+// import contacts2 from 'db/contacts2.json';
 
 import css from './App.module.css';
 
@@ -101,7 +101,7 @@ export const App = () => {
         {/* <p>{start}</p> */}
         <ContactItem
           contacts={contacts}
-          contacts2={contacts2}
+          // contacts2={contacts2}
           // start={start}
           // toggleTrigger={toggleTrigger}
         />

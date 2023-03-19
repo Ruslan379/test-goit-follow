@@ -20,7 +20,7 @@ import rectangle from 'images/rectangle.svg';
 import css from './ContactItem.module.css';
 
 
-export const ContactItem = ({ contacts, contats2 }) => {
+export const ContactItem = ({ contacts }) => {
   // const [contactFollowers, setContactFollowers] = useState(null);
 
   // const [start, setStart] = useState(true);
