@@ -43,7 +43,6 @@
         top: 28px;
 }
 
-
 .avatar {
     /* height: 80px; */
     /* width: 80px; */
@@ -51,6 +50,7 @@
         top: 178px;
         z-index: 99;
 }
+
 
 .rectangle {
     /* height: 80px; */
@@ -100,10 +100,10 @@
     color: #000000;
     background-color: #EBD8FF;
 }
-/* .btnFOLLOW:hover,
+.btnFOLLOW:hover,
 .btnFOLLOW:focus {
-    background-color: #f1f1f1;
-} */
+    background-color: #e2c7ff;
+}
 
 
 .btnFOLLOWING {
@@ -130,9 +130,9 @@
     color: #000000;
     background-color: #5CD3A8;
 }
-/* .btnFOLLOWING:hover,
+.btnFOLLOWING:hover,
 .btnFOLLOWING:focus {
-    background-color: #00b38c;
-} */
+    background-color: #3ec594;
+}
 
 
