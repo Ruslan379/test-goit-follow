@@ -1,6 +1,6 @@
 import { ButtonTrigger } from './ButtonTrigger/ButtonTrigger.jsx';
 import { OneCard } from './OneCard/OneCard.jsx';
-import { ContactItem } from './ContactItem/ContactItem.jsx';
+import { CardItem } from './CardItem/CardItem.jsx';
 
 import contacts from 'db/contacts.json';
 
@@ -32,8 +32,8 @@ export const App = () => {
 
       {triggerTask && (
         <ul className={css.cardList}>
-        <ContactItem contacts={contacts}/>
-      </ul>
+          <CardItem contacts={contacts}/>
+        </ul>
       )}
     </div>
   );

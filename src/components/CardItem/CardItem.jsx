@@ -7,10 +7,10 @@ import picture from 'images/picture2.svg';
 import avatar from 'images/boy.svg'; 
 import rectangle from 'images/rectangle.svg';
 
-import css from './ContactItem.module.css';
+import css from './CardItem.module.css';
 
 
-export const ContactItem = ({ contacts }) => {
+export const CardItem = ({ contacts }) => {
   //! DB contacts + length
   const contactsLength = contacts.length;
 
