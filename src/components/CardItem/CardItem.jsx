@@ -4,7 +4,7 @@ import { ButtonTrigger } from '../ButtonTrigger/ButtonTrigger.jsx';
 
 import logo from 'images/logo.svg';
 import picture from 'images/picture2.svg'; 
-import avatar from 'images/boy.svg'; 
+import avatarBorder from 'images/boy.svg'; 
 import rectangle from 'images/rectangle.svg';
 
 import css from './CardItem.module.css';
@@ -52,7 +52,7 @@ export const CardItem = ({ contacts }) => {
 
   return (
     <>
-      {contacts.map(({ id, user, tweets, followers }) => (
+      {contacts.map(({ id, user, tweets, followers, avatar }) => (
         <li
           key={id}
           className={css.card}>
@@ -67,11 +67,17 @@ export const CardItem = ({ contacts }) => {
                     src={picture}
                     alt="" width="308"
                 />
-          {/* //! avatar */}
-          <img className={css.avatar}
-              src={avatar}
+          {/* //! avatar Border */}
+          <img className={css.avatarBorder}
+            src={avatarBorder}
             alt=""
             width="80"
+          />
+          {/* //! avatar */}
+          <img className={css.avatar}
+            src={avatar}
+            alt=""
+            width="55"
           />
           {/* //! rectangle */}
           <img className={css.rectangle}
