@@ -1,4 +1,4 @@
-import useLocalStorage from './hooks/useLocalStorage';
+import useLocalStorage from '../hooks/useLocalStorage';
 
 //! images
 import logo from 'images/logo.svg';
@@ -8,12 +8,12 @@ import picture from 'images/picture2.svg';
 import avatar from 'images/boy.svg'; 
 import rectangle from 'images/rectangle.svg'; 
 
-import css from './App.module.css';
+import css from './OneCard.module.css';
 
 
-export const App = () => {
-  const [trigger, setTrigger] = useLocalStorage("Followers", false);
-  // console.log("trigger:", trigger); //!
+export const OneCard = () => {
+  const [triggerOneCard, setTriggerOneCard] = useLocalStorage("TriggerOneCard", false);
+  console.log("triggerOneCard:", triggerOneCard); //!
 
   //! Input data
   const tweets = 777;
@@ -24,7 +24,7 @@ export const App = () => {
   // console.log("followers:", followers); //!
   // console.log("followersString:", followersString); //!
   
-  if (trigger) {
+  if (triggerOneCard) {
     followers = followers + 1;
     followersString = followers.toString();
     // console.log("followers1:", followers); //!
@@ -38,8 +38,8 @@ export const App = () => {
   // console.log("followersRenderEnd:", followersRenderEnd); //!
   //! _______________ Преобразование 00500(100501) --> 100,500(100,501) _______________
 
-  const toggleTrigger = () => {
-    setTrigger(!trigger);
+  const toggleTriggerOneCard = () => {
+    setTriggerOneCard(!triggerOneCard);
   };
 
   
@@ -84,11 +84,11 @@ export const App = () => {
       {/* //! Trigger button */}
       <button
           type="button"
-          className={trigger ? css.btnFOLLOWING : css.btnFOLLOW}
-          onClick={toggleTrigger}
+          className={triggerOneCard ? css.btnFOLLOWING : css.btnFOLLOW}
+          onClick={toggleTriggerOneCard}
       >
         {/* FOLLOW */}
-        {trigger ? "FOLLOWING" : "FOLLOW"}
+        {triggerOneCard ? "FOLLOWING" : "FOLLOW"}
       </button>
     </div>
   );
