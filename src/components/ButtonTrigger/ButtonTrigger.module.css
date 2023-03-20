@@ -17,8 +17,8 @@
     color: #000000;
     background-color: #EBD8FF;
 }
-.btnOneCard:hover,
-.btnOneCard:focus {
+.btnFalse:hover,
+.btnFalse:focus {
     background-color: #e2c7ff;
 }
 
@@ -42,7 +42,7 @@
     color: #000000;
     background-color: #5CD3A8;
 }
-.btnManyCards:hover,
-.btnManyCards:focus {
+.btnTrue:hover,
+.btnTrue:focus {
     background-color: #3ec594;
 }
