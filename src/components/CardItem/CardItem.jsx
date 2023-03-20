@@ -33,23 +33,15 @@ export const CardItem = ({ contacts }) => {
   //! Пишем в Local Storage весь Массив-Триггер (arrTrigger)
   useEffect(() => {
     localStorage.setItem("ArrFollowers", JSON.stringify(arrTrigger));
-    console.log("ЗАПИСЬ в Local Storage:", arrTrigger);
-
-    const localStorageGet = JSON.parse(localStorage.getItem("ArrFollowers"))
-    console.log("ЧТЕНИЕ из Local Storage:", localStorageGet); //!
+    console.log("ЗАПИСЬ в Local Storage:", arrTrigger); //!
   }, [arrTrigger]);
 
-  // console.log("arrTrigger ПОСЛЕ:", arrTrigger); //!
+  console.log("arrTrigger ПОСЛЕ:", arrTrigger); //!
 
     //! Логика работы кнопки FOLLOW/FOLLOWING 
     const toggleTrigger = (id) => {
-      // console.log("id:", id); //!
       const idNumber = Number(id) - 1;
-      // console.log("idNumber:", idNumber); //!
-
-      // console.log(`toggleTrigger --> arrTrigger[${idNumber}]_ДО:`, arrTrigger[idNumber]); //!
       arrTrigger[idNumber] = !arrTrigger[idNumber];
-      // console.log(`toggleTrigger --> arrTrigger[${idNumber}]_ПОСЛЕ:`, arrTrigger[idNumber]); //!
 
       setArrTrigger(arrTrigger);
       setTrigger(!trigger);

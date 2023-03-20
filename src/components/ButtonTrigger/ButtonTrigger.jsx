@@ -1,7 +1,5 @@
 
-
 import css from './ButtonTrigger.module.css';
-
 
 export const ButtonTrigger = ({
   trigger,
@@ -11,17 +9,10 @@ export const ButtonTrigger = ({
   inversionBackColor
 }) => {
 
-  
   let triggerColor = trigger;
   if (inversionBackColor) {
     triggerColor = !trigger
   };
-
-  console.log("ButtonTrigger-->trigger:", trigger); //!
-  console.log("ButtonTrigger-->textTrue:", textTrue); //!
-  console.log("ButtonTrigger-->textFalse:", textFalse); //!
-
-
 
   return (
       <button
