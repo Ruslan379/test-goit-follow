@@ -1,5 +1,7 @@
 import {useState, useEffect} from 'react';
 
+import { ButtonTrigger } from '../ButtonTrigger/ButtonTrigger.jsx';
+
 import logo from 'images/logo.svg';
 import picture from 'images/picture2.svg'; 
 import avatar from 'images/boy.svg'; 
@@ -103,13 +105,13 @@ export const ContactItem = ({ contacts }) => {
               &nbsp;FOLLOWERS
           </p>
           {/* //! Trigger button */}
-          <button
-            type="button"
-            className={arrTrigger[id-1] ? css.btnFOLLOWING : css.btnFOLLOW}
-            onClick={() => {toggleTrigger(id)}}
-          >
-            {arrTrigger[id-1] ? "FOLLOWING" : "FOLLOW"}
-          </button>
+          <ButtonTrigger
+            trigger={arrTrigger[id-1]}
+            toggleTrigger={() => {toggleTrigger(id)}}
+            textTrue={"FOLLOWING"}
+            textFalse={"FOLLOW"}
+            inversionBackColor={false}
+          />
         </li>
       ))}
     </>
