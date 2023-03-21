@@ -35,25 +35,26 @@ export const OneCard = () => {
     <div className={css.card}>
       {/* //! logo */}
       <img className={css.logo}
-          src={logo}
-        alt=""
+        alt="first logo"
+        src={logo}
         width="76"
       />
       {/* //! picture */}
       <img className={css.picture}
-                src={picture}
-                alt="" width="308"
-            />
+        alt="second logo"
+        src={picture}
+        width="308"
+      />
       {/* //! avatar */}
       <img className={css.avatar}
-          src={avatar}
-        alt=""
+        alt="avatar"
+        src={avatar}
         width="80"
       />
       {/* //! rectangle */}
       <img className={css.rectangle}
-          src={rectangle}
-        alt=""
+        alt="rectangle"
+        src={rectangle}
         width="380"
       />
       {/* //! tweets */}
