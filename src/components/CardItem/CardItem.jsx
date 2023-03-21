@@ -3,7 +3,6 @@ import {useState, useEffect} from 'react';
 import { ButtonTrigger } from '../ButtonTrigger/ButtonTrigger.jsx';
 
 import logo from 'images/logo.svg';
-import picture from 'images/picture.svg'; 
 import { ReactComponent as Ellipse } from 'images/ellipse.svg'; 
 import rectangle from 'images/rectangle.svg';
 
@@ -48,12 +47,6 @@ export const CardItem = ({ contacts }) => {
             alt="first logo"
             src={logo}
             width="76"
-          />
-          {/* //! picture */}
-          <img className={css.picture}
-            alt="background"
-            src={picture}
-            width="308"
           />
           {/* //! ellipse */}
           <Ellipse className={css.ellipse} />
