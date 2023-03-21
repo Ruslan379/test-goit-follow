@@ -3,7 +3,6 @@ import useLocalStorage from '../hooks/useLocalStorage';
 import { ButtonTrigger } from '../ButtonTrigger/ButtonTrigger.jsx';
 
 import logo from 'images/logo.svg';
-import picture from 'images/picture.svg'; 
 import { ReactComponent as Ellipse } from 'images/ellipse.svg';
 import avatar from 'images/avatar.svg'; 
 import rectangle from 'images/rectangle.svg'; 
@@ -39,12 +38,6 @@ export const OneCard = () => {
         alt="first logo"
         src={logo}
         width="76"
-      />
-      {/* //! picture */}
-      <img className={css.picture}
-        alt="background"
-        src={picture}
-        width="308"
       />
       {/* //! ellipse */}
       <Ellipse className={css.ellipse} />
