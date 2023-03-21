@@ -1,13 +1,18 @@
 import {useState, useEffect} from 'react';
-
 import { ButtonTrigger } from '../ButtonTrigger/ButtonTrigger.jsx';
-
 import logo from 'images/logo.svg';
 import { ReactComponent as Ellipse } from 'images/ellipse.svg'; 
 import rectangle from 'images/rectangle.svg';
-
-import css from './CardItem.module.css';
-
+import {
+  Card,
+  Logo,
+  RoundFrameAvatar, 
+  Avatar,
+  Rectangle,
+  UserName, 
+  Tweets,
+  Followers
+} from './CardItem.styled';
 
 export const CardItem = ({ contacts }) => {
   const contactsLength = contacts.length;
@@ -39,47 +44,37 @@ export const CardItem = ({ contacts }) => {
   return (
     <>
       {contacts.map(({ id, user, tweets, followers, avatar }) => (
-        <li
-          key={id}
-          className={css.card}>
-          {/* //! logo */}
-          <img className={css.logo}
+        <Card key={id}>
+          <Logo
             alt="first logo"
             src={logo}
             width="76"
           />
-          {/* //! ellipse */}
-          <Ellipse className={css.ellipse} />
-          {/* //! avatar */}
-          <img className={css.avatar}
-            alt={user}
-            src={avatar}
-            width="63"
-          />
-          {/* //! rectangle */}
-          <img className={css.rectangle}
+          <Rectangle
             alt="rectangle"
             src={rectangle}
             width="380"
           />
-          {/* //! user name */}
-          <p className={css.userName}
-          >
-            {user}
-          </p>
-          {/* //! tweets */}
-          <p className={css.tweets}
-          >
-            {tweets} tweets
-          </p>
-          {/* //! FOLLOWERS */}
-          <p className={css.followers}
-          >
-            <span className={css.spanFollowers}>{followers.toString().slice(0, -3)},{arrTrigger[id - 1] ? (followers + 1).toString().slice(-3) : followers.toString().slice(-3)}</span>
-            {/* <span className={css.spanFollowers}>{followers.toString().slice(0, -3)},{arrTrigger[id-1] ? followers.toString().slice(-3) : followers.toString().slice(-3)}</span> */}
+          <RoundFrameAvatar>
+            <Ellipse />
+          </RoundFrameAvatar>
+          <Avatar
+            alt={user}
+            src={avatar}
+            width="63"
+          />
+          <UserName>{user}</UserName>
+          <Tweets>{tweets} tweets</Tweets>
+          <Followers>
+            <span>
+              {followers.toString().slice(0, -3)},{arrTrigger[id - 1]
+              ?
+              (followers + 1).toString().slice(-3)
+              :
+              followers.toString().slice(-3)}
+            </span>
               &nbsp;FOLLOWERS
-          </p>
-          {/* //! Trigger button */}
+          </Followers>
           <ButtonTrigger
             trigger={arrTrigger[id-1]}
             toggleTrigger={() => {toggleTrigger(id)}}
@@ -87,7 +82,7 @@ export const CardItem = ({ contacts }) => {
             textFalse={"FOLLOW"}
             inversionBackColor={false}
           />
-        </li>
+        </Card>
       ))}
     </>
   );

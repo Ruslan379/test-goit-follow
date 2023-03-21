@@ -54,8 +54,8 @@ export const OneCard = () => {
       />
       <Tweets>{tweets} tweets</Tweets>
       <Followers>
-        <span>{followersRenderStart},{followersRenderEnd} </span>
-        FOLLOWERS
+        <span>{followersRenderStart},{followersRenderEnd}</span>
+        &nbsp;FOLLOWERS
       </Followers>
       <ButtonTrigger
         trigger={triggerOneCard}

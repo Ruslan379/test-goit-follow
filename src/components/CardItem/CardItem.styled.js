@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import picture from '../../images/picture.svg';
 
-export const Card = styled.div`
+export const Card = styled.li`
     position: relative;
     height: 460px;
     width: 380px;
@@ -59,6 +59,13 @@ export const Avatar = styled.img`
 export const Rectangle = styled.img`
     position: absolute;
         top: 214px;
+`;
+
+export const UserName = styled.p`
+    font-weight: 600;
+    position: absolute;
+        top: 259px;
+        color: #ba8bf8;
 `;
 
 export const Tweets = styled.p`
