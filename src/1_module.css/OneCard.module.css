@@ -16,7 +16,7 @@
     
     box-shadow: -2.5777px 6.87386px 20.6216px rgba(0, 0, 0, 0.23);
     border-radius: 20px;
-    
+
     background-image: url("../../images/picture.svg"),
         linear-gradient(114.99deg, #471CA9 -0.99%, #5736A3 54.28%, #4B2A99 78.99%);
             background-repeat: no-repeat;
@@ -27,15 +27,15 @@
 
 .logo {
     position: absolute;
-    top: 20px;
-    left: 20px;
+        top: 20px;
+        left: 20px;
 }
 
 .picture {
     height: 168px;
     width: 308px;
     position: absolute;
-    top: 28px;
+        top: 28px;
 }
 
 .ellipse {
@@ -57,11 +57,7 @@
     top: 214px;
 }
 
-.userName {
-    position: absolute;
-    top: 255px;
-    color: #ba8bf8;
-}
+
 .tweets {
     margin-top: 284px;
 }
