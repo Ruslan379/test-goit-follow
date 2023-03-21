@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react';
 import { ButtonTrigger } from '../ButtonTrigger/ButtonTrigger.jsx';
 
 import logo from 'images/logo.svg';
-import picture from 'images/picture2.svg'; 
+import picture from 'images/picture.svg'; 
 import avatarBorder from 'images/boy.svg'; 
 import rectangle from 'images/rectangle.svg';
 
