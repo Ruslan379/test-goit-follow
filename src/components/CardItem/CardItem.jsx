@@ -1,4 +1,5 @@
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { ButtonTrigger } from '../ButtonTrigger/ButtonTrigger.jsx';
 import logo from 'images/logo.svg';
 import { ReactComponent as Ellipse } from 'images/ellipse.svg'; 
@@ -86,4 +87,8 @@ export const CardItem = ({ contacts }) => {
       ))}
     </>
   );
+};
+
+CardItem.propTypes = {
+  contacts: PropTypes.array.isRequired,
 };
