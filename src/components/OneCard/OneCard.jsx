@@ -26,7 +26,7 @@ export const OneCard = () => {
   };
   let followersRenderStart = followersString.slice(0, -3);
   let followersRenderEnd = followersString.slice(-3);
-  //! _______________ Преобразование 00500(100501) --> 100,500(100,501) _______________
+  
 
   const toggleTriggerOneCard = () => {
     setTriggerOneCard(!triggerOneCard);
@@ -42,7 +42,7 @@ export const OneCard = () => {
       />
       {/* //! picture */}
       <img className={css.picture}
-        alt="second logo"
+        alt="background"
         src={picture}
         width="308"
       />

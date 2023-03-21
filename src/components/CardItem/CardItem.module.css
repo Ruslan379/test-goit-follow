@@ -30,23 +30,23 @@
         top: 28px;
 }
 
-.avatarBorder {
+.ellipse {
     position: absolute;
-    top: 178px;
-    z-index: 77;
+        top: 178px;
+        z-index: 99;
 }
 
 .avatar {
     position: absolute;
-    top: 186px;
-    z-index: 99;
+        top: 187px;
+        z-index: 77;
     border-radius: 50%;
     background: linear-gradient(114.99deg, #471CA9 -0.99%, #5736A3 54.28%, #4B2A99 78.99%);
 }
 
 .rectangle {
     position: absolute;
-    top: 214px;
+        top: 214px;
 }
 
 .userName {

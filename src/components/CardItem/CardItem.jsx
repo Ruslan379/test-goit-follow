@@ -4,51 +4,38 @@ import { ButtonTrigger } from '../ButtonTrigger/ButtonTrigger.jsx';
 
 import logo from 'images/logo.svg';
 import picture from 'images/picture.svg'; 
-import avatarBorder from 'images/boy.svg'; 
+import { ReactComponent as Ellipse } from 'images/ellipse.svg'; 
 import rectangle from 'images/rectangle.svg';
 
 import css from './CardItem.module.css';
 
 
 export const CardItem = ({ contacts }) => {
-  //! DB contacts + length
   const contactsLength = contacts.length;
 
-  //! arrFollowers - массив, наполняющий Local Storage дефолтными значениями = false
   let arrFollowers = [];
   for (let i = 0; i < contactsLength; i += 1) {
     arrFollowers[i] = false;
   };
 
-  //! Массив-Триггер со зачениями true/false в зависимости от сотояние кнопки
-  //! Считываем значения true/false в Массив-Триггер из Local Storage
-  //! Если Local Storage пустой, то записываем массив arrFollowers 
   const [arrTrigger, setArrTrigger] = useState(
     JSON.parse(localStorage.getItem("ArrFollowers")) ?? arrFollowers
   );
 
-  //! Дополнительный триггер (для перерендования)
-  const [trigger, setTrigger] = useState(false); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  const [trigger, setTrigger] = useState(false); 
 
-  //! Пишем в Local Storage весь Массив-Триггер (arrTrigger)
   useEffect(() => {
     localStorage.setItem("ArrFollowers", JSON.stringify(arrTrigger));
-    console.log("ЗАПИСЬ в Local Storage:", arrTrigger); //!
   }, [arrTrigger]);
 
-  console.log("arrTrigger ПОСЛЕ:", arrTrigger); //!
-
-    //! Логика работы кнопки FOLLOW/FOLLOWING 
-    const toggleTrigger = (id) => {
-      const idNumber = Number(id) - 1;
-      arrTrigger[idNumber] = !arrTrigger[idNumber];
-
-      setArrTrigger(arrTrigger);
-      setTrigger(!trigger);
-      localStorage.setItem("ArrFollowers", JSON.stringify(arrTrigger));
-      return 
-    }
-
+  const toggleTrigger = (id) => {
+    const idNumber = Number(id) - 1;
+    arrTrigger[idNumber] = !arrTrigger[idNumber];
+    setArrTrigger(arrTrigger);
+    setTrigger(!trigger);
+    localStorage.setItem("ArrFollowers", JSON.stringify(arrTrigger));
+    return 
+  }
 
   return (
     <>
@@ -64,21 +51,17 @@ export const CardItem = ({ contacts }) => {
           />
           {/* //! picture */}
           <img className={css.picture}
-            alt="second logo"
+            alt="background"
             src={picture}
             width="308"
           />
-          {/* //! avatar Border */}
-          <img className={css.avatarBorder}
-            alt="avatar border"
-            src={avatarBorder}
-            width="80"
-          />
+          {/* //! ellipse */}
+          <Ellipse className={css.ellipse} />
           {/* //! avatar */}
           <img className={css.avatar}
             alt={user}
             src={avatar}
-            width="55"
+            width="63"
           />
           {/* //! rectangle */}
           <img className={css.rectangle}
