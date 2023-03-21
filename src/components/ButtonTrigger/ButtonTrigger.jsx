@@ -1,5 +1,6 @@
-
-import css from './ButtonTrigger.module.css';
+import {
+  Button
+} from './ButtonTrigger.styled';
 
 export const ButtonTrigger = ({
   trigger,
@@ -15,12 +16,12 @@ export const ButtonTrigger = ({
   };
 
   return (
-      <button
-          type="button"
-          className={triggerColor ? css.btnTrue : css.btnFalse}
-          onClick={toggleTrigger}
-      >
-        {trigger ? textTrue : textFalse}
-      </button>
+      <Button
+      type="button"
+      onClick={toggleTrigger}
+      triggerColor={triggerColor}
+    >
+      {trigger ? textTrue : textFalse}
+    </Button>
   );
 };
