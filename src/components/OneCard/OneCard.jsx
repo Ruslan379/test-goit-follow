@@ -3,13 +3,12 @@ import { ButtonTrigger } from '../ButtonTrigger/ButtonTrigger.jsx';
 import logo from 'images/logo.svg';
 import { ReactComponent as Ellipse } from 'images/ellipse.svg';
 import avatar from 'images/avatar.svg'; 
-import rectangle from 'images/rectangle.svg'; 
 import {
   Card,
   Logo,
   RoundFrameAvatar, 
   Avatar,
-  Rectangle,
+  HorizontalLine,
   Tweets,
   Followers
 } from './OneCard.styled';
@@ -39,11 +38,7 @@ export const OneCard = () => {
         src={logo}
         width="76"
       />
-      <Rectangle
-        alt="rectangle"
-        src={rectangle}
-        width="380"
-      />
+      <HorizontalLine />
       <RoundFrameAvatar>
         <Ellipse />
       </RoundFrameAvatar>
