@@ -8,7 +8,6 @@ import {
   Logo,
   RoundFrameAvatar, 
   Avatar,
-  HorizontalLine,
   Tweets,
   Followers
 } from './OneCard.styled';
@@ -38,7 +37,6 @@ export const OneCard = () => {
         src={logo}
         width="76"
       />
-      <HorizontalLine />
       <RoundFrameAvatar>
         <Ellipse />
       </RoundFrameAvatar>

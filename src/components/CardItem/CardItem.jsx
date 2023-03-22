@@ -8,7 +8,6 @@ import {
   Logo,
   RoundFrameAvatar, 
   Avatar,
-  HorizontalLine,
   UserName, 
   Tweets,
   Followers
@@ -50,7 +49,6 @@ export const CardItem = ({ contacts }) => {
             src={logo}
             width="76"
           />
-          <HorizontalLine />
           <RoundFrameAvatar>
             <Ellipse />
           </RoundFrameAvatar>
