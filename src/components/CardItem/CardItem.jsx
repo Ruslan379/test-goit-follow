@@ -3,13 +3,12 @@ import PropTypes from 'prop-types';
 import { ButtonTrigger } from '../ButtonTrigger/ButtonTrigger.jsx';
 import logo from 'images/logo.svg';
 import { ReactComponent as Ellipse } from 'images/ellipse.svg'; 
-import rectangle from 'images/rectangle.svg';
 import {
   Card,
   Logo,
   RoundFrameAvatar, 
   Avatar,
-  Rectangle,
+  HorizontalLine,
   UserName, 
   Tweets,
   Followers
@@ -51,11 +50,7 @@ export const CardItem = ({ contacts }) => {
             src={logo}
             width="76"
           />
-          <Rectangle
-            alt="rectangle"
-            src={rectangle}
-            width="380"
-          />
+          <HorizontalLine />
           <RoundFrameAvatar>
             <Ellipse />
           </RoundFrameAvatar>
