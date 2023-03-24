@@ -16,7 +16,7 @@ import {
 export const CardItem = ({ contacts }) => {
   const contactsLength = contacts.length;
 
-  let arrFollowers = [];
+  const arrFollowers = [];
   for (let i = 0; i < contactsLength; i += 1) {
     arrFollowers[i] = false;
   };
@@ -25,8 +25,6 @@ export const CardItem = ({ contacts }) => {
     JSON.parse(localStorage.getItem("ArrFollowers")) ?? arrFollowers
   );
 
-  const [trigger, setTrigger] = useState(false); 
-
   useEffect(() => {
     localStorage.setItem("ArrFollowers", JSON.stringify(arrTrigger));
   }, [arrTrigger]);
@@ -34,8 +32,11 @@ export const CardItem = ({ contacts }) => {
   const toggleTrigger = (id) => {
     const idNumber = Number(id) - 1;
     arrTrigger[idNumber] = !arrTrigger[idNumber];
-    setArrTrigger(arrTrigger);
-    setTrigger(!trigger);
+
+    setArrTrigger(prevArrTrigger => {
+        return [...prevArrTrigger]
+    });
+    
     localStorage.setItem("ArrFollowers", JSON.stringify(arrTrigger));
     return 
   }
