@@ -29,6 +29,7 @@ export const Card = styled.div`
         background-size: 308px 168px, cover;
         background-position-x: center;
         background-position-y: 28px, center;
+    //! HorizontalLine
     ::before {
         content: '';
         position: absolute;
@@ -41,6 +42,24 @@ export const Card = styled.div`
             inset 0px -1.71846px 3.43693px #ae7be3, 
             inset 0px 3.43693px 2.5777px #fbf8ff;
     }
+    //! RoundFrameAvatar
+    ::after {
+    content: '';
+    height: 62px;
+    width: 62px;
+    position: absolute;
+    top: 187px;
+    border-radius: 50%;
+    background: linear-gradient(
+            114.99deg, 
+            #471CA9 -0.99%, 
+            #5736A3 54.28%, 
+            #4B2A99 78.99%
+            );
+    box-shadow: 0px 4.39163px 4.39163px -4px rgb(0 0 0 / 6%), 
+        0px 0px 10px 2px #ae7be3, 
+        0px 0px 0px 8px #fbf8ff;
+    }
 `;
 
 export const Logo = styled.img`
@@ -49,6 +68,7 @@ export const Logo = styled.img`
         left: 20px;
 `;
 
+//! Not used
 export const RoundFrameAvatar = styled.div`
     position: absolute;
     top: 178px;
@@ -57,15 +77,15 @@ export const RoundFrameAvatar = styled.div`
 
 export const Avatar = styled.img`
     position: absolute;
-    top: 187px;
+    top: 188px;
     z-index: 77;
     border-radius: 50%;
-    background: linear-gradient(
+    /* background: linear-gradient(
             114.99deg, 
             #471CA9 -0.99%, 
             #5736A3 54.28%, 
             #4B2A99 78.99%
-            );
+            ); */
 `;
 
 export const Tweets = styled.p`

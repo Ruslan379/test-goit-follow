@@ -1,6 +1,10 @@
 ## Приложение - карточка пользователя твиттера.
 
-1. Создан макет одной карточки пользователя твиттера:
+1. Создан макет одной карточки пользователя твиттера согласно ТЗ:
+
+   [https://drive.google.com/file/d/1YJuJ1nhaJv7SRlJLH05OTw08dxW2TQGK/view](https://drive.google.com/file/d/1YJuJ1nhaJv7SRlJLH05OTw08dxW2TQGK/view).
+
+   Mакет одной карточки пользователя твиттера:
 
    ![Mакет одной карточки пользователя твиттера (false)](./assets/one-card_false.jpg)
 

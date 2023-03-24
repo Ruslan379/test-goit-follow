@@ -2,13 +2,11 @@ import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { ButtonTrigger } from '../ButtonTrigger/ButtonTrigger.jsx';
 import logo from 'images/logo.svg';
-import { ReactComponent as Ellipse } from 'images/ellipse.svg'; 
 import {
   Card,
   Logo,
-  RoundFrameAvatar, 
   Avatar,
-  UserName, 
+  // UserName, //! Not used
   Tweets,
   Followers
 } from './CardItem.styled';
@@ -50,15 +48,12 @@ export const CardItem = ({ contacts }) => {
             src={logo}
             width="76"
           />
-          <RoundFrameAvatar>
-            <Ellipse />
-          </RoundFrameAvatar>
           <Avatar
             alt={user}
             src={avatar}
-            width="63"
+            width="62"
           />
-          <UserName>{user}</UserName>
+          {/* <UserName>{user}</UserName> */}
           <Tweets>{tweets} tweets</Tweets>
           <Followers>
             <span>

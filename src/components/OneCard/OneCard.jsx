@@ -1,12 +1,10 @@
 import useLocalStorage from '../hooks/useLocalStorage';
 import { ButtonTrigger } from '../ButtonTrigger/ButtonTrigger.jsx';
 import logo from 'images/logo.svg';
-import { ReactComponent as Ellipse } from 'images/ellipse.svg';
 import avatar from 'images/avatar.svg'; 
 import {
   Card,
   Logo,
-  RoundFrameAvatar, 
   Avatar,
   Tweets,
   Followers
@@ -37,13 +35,10 @@ export const OneCard = () => {
         src={logo}
         width="76"
       />
-      <RoundFrameAvatar>
-        <Ellipse />
-      </RoundFrameAvatar>
       <Avatar
         alt="avatar"
         src={avatar}
-        width="63"
+        width="62"
       />
       <Tweets>{tweets} tweets</Tweets>
       <Followers>
