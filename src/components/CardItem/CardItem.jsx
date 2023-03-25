@@ -31,9 +31,7 @@ export const CardItem = ({ contacts }) => {
     const idNumber = Number(id) - 1;
     arrTrigger[idNumber] = !arrTrigger[idNumber];
 
-    setArrTrigger(prevArrTrigger => {
-        return [...prevArrTrigger]
-    });
+    setArrTrigger([...arrTrigger]);
     
     localStorage.setItem("ArrFollowers", JSON.stringify(arrTrigger));
     return 
